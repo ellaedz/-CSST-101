@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Portfolio — [Your Name]</title>
+  <meta name="description" content="Student portfolio showcasing projects, skills and contact information." />
+
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#6ee7b7; /* mint */
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1100px;
+      --radius:14px;
+      --ff: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:var(--ff);
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(80, 13, 60, 0.12), transparent),
+                  linear-gradient(180deg,#dd0fdd 0%, var(--bg) 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 18px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      background:linear-gradient(180deg, rgba(255, 255, 255, 0), transparent);
+      border-radius:20px;
+      padding:28px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:center;
+      margin-bottom:22px;
+    }
+
+    .brand{
+      display:flex;gap:12px;align-items:center;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:white;
+      box-shadow:0 6px 18px rgba(99,102,241,0.14);
+    }
+    h1{font-size:18px;margin:0}
+    p.lead{margin:0;color:var(--muted);font-size:13px}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+    nav a.cta{background:transparent;border:1px solid rgba(248, 126, 242, 0.06);padding:8px 12px;border-radius:10px;color:var(--accent)}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:22px;
+    }
+
+    /* left main */
+    main.card{
+      background:linear-gradient(180deg, rgba(253, 123, 194, 0.925), rgba(243, 139, 200, 0));
+      padding:22px;border-radius:var(--radius);
+    }
+
+    .hero{
+      display:flex;gap:18px;align-items:center;margin-bottom:18px;
+    }
+.profile {
+  display: flex;
+  align-items: center; /* aligns image and text vertically */
+  gap: 20px; /* space between image and text */
+}
+
+.avatar {
+  width: 270px;
+  height: auto; /* allow natural image height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  width: 270px;
+  height: auto; /* keeps full image visible */
+  object-fit: contain; /* shows full image without cropping */
+  border-radius: 0; /* keeps corners square */
+}
+
+    .hero .avatar{flex-shrink:0
+}
+    .hero div{flex:1
+    }
+    .hero h2{margin:0;font-size:20px}
+    .hero .sub{color:var(--muted);font-size:14px}
+
+    .introduction{margin:12px 0 18px;color:#d9e6fb}
+
+    .skills{
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:10px
+    }
+    .skill{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:13px;color:var(--muted)}
+
+    .section-title{display:flex;justify-content:space-between;align-items:end;margin:18px 0 10px}
+    .section-title h3{margin:0;font-size:16px}
+    .projects{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:12px
+    }
+    .project{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      border-radius:12px;padding:10px;border:1px solid rgba(255,255,255,0.02);overflow:hidden;
+      transition:transform .22s ease, box-shadow .22s ease;
+    }
+    .project:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.5)}
+    .project img{width:100%;height:120px;object-fit:cover;border-radius:10px;margin-bottom:8px}
+    .project h4{margin:6px 0;font-size:15px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+    .tags{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
+
+    .resume-btn{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);text-decoration:none;color:var(--accent);font-weight:600}
+
+    /* right column */
+    aside.card{
+      padding:18px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      height:100%;position:sticky;top:36px;
+    }
+    .contact-row{display:flex;gap:10px;align-items:center;margin-top:8px}
+    .contact-row svg{width:18px;height:18px;opacity:0.75}
+
+    .edu, .experience{margin-top:14px}
+    .progress{height:8px;background:rgba(255,255,255,0.04);border-radius:8px;overflow:hidden}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent), #60a5fa);}
+
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      aside.card{position:relative;top:auto}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="brand">
+        <div class="logo">LSPU</div>
+        <div>
+          <h1>ELLA</h1>
+          <p class="lead">Computer Science Student • UI Designer and Developer</p>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+
+      <main class="card" aria-label="Main content">
+
+        <section class="hero" aria-labelledby="intro">
+          <div class="avatar">
+  <img src="ellacute.jpg" alt="Ella Edz A. Taquilid">
+</div>
+            <div>
+            <h2 id="intro">Hi — I'm Ella Edz A. Taquilid</h2>
+            <div class="sub">3rd-year Computer Science student at Laguna State Polytechnic University. Passionate about building useful apps and learning new tech.</div>
+            <div class="introduction">I design and build web apps, small games, and interactive visualizations. Looking for internship opportunities and collaborative projects.</div>
+            <div class="skills" aria-hidden="false">
+              <div class="skill">HTML</div>
+              <div class="skill">CSS</div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">Flutter</div>
+              <div class="skill">Git</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects">
+          <div class="section-title">
+            <h3>Previous Projects</h3>
+          </div>
+
+          <div class="projects">
+
+            <article class="project">
+              <h4>Smart ToDo App</h4>
+              <p>A responsive task manager with local persistence and categories. Built with HTML, CSS and vanilla JS.</p>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">LocalStorage</span></div>
+            </article>
+
+            <article class="project">
+              <h4>Lalamon Food Delivery app (Flutter)</h4>
+              <p>Animated UI prototype for a food ordering app. Includes categories and search interactions.</p>
+              <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">UI</span></div>
+            </article>
+
+            <article class="project">
+              <h4>Fruit Basket Game</h4>
+              <p>A small browser puzzle made for a class assignment. Teaches algorithmic thinking with levels and scoring.</p>
+              <div class="tags"><span class="tag">Canvas</span><span class="tag">Algorithms</span></div>
+            </article>
+
+            <article class="project">
+              <h4>Data Visualization</h4>
+              <p>Exploratory charts and interactive filters for a dataset, showing trends and comparisons.</p>
+              <div class="tags"><span class="tag">D3</span><span class="tag">CSV</span></div>
+            </article>
+
+          </div>
+        </section>
+
+        <section id="skills" style="margin-top:18px;">
+          <div class="section-title"><h3>Skills & Tools</h3><div class="sub">Level: Familiar / Comfortable</div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div>
+              <strong>Frontend</strong>
+              <p class="muted">HTML • CSS • JavaScript • React basics</p>
+              <div class="progress" aria-hidden="true" style="margin-top:8px"><i style="width:78%"></i></div>
+            </div>
+            <div>
+              <strong>Mobile</strong>
+              <p class="muted">Flutter • Dart</p>
+              <div class="progress" aria-hidden="true" style="margin-top:8px"><i style="width:60%"></i></div>
+            </div>
+
+            <div>
+              <strong>Data</strong>
+              <p class="muted">Python • Data Viz • SQL basics</p>
+              <div class="progress" aria-hidden="true" style="margin-top:8px"><i style="width:48%"></i></div>
+            </div>
+            <div>
+              <strong>Tools</strong>
+              <p class="muted">Git • VSCode • Figma</p>
+              <div class="progress" aria-hidden="true" style="margin-top:8px"><i style="width:70%"></i></div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="card" aria-label="Sidebar">
+        <div>
+          <h3>Contact</h3>
+          <div class="contact-row"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Email</strong><div style="color:var(--muted);font-size:13px">taquilidellaedz@gmail.com</div></div></div>
+          <div class="contact-row"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><strong>Location</strong><div style="color:var(--muted);font-size:13px">Santa Cruz, Laguna</div></div></div>
+
+          <div style="margin-top:12px">
+            <a href="ella edz a. taquilid (4).pdf" class="resume-btn" target="_blank" style="display:block;text-align:center">View Resume</a>
+          <div class="edu">
+            <h4 style="margin-bottom:6px">Education</h4>
+            <div><strong>LSPU</strong></div>
+            <div style="color:var(--muted);font-size:13px">B.S. Computer Science — Expected 2027</div>
+          </div>
+
+          <div class="experience">
+            <h4 style="margin-bottom:6px">Experience</h4>
+            <div style="font-size:14px"><strong>Student Developer — Algorithm Alliance</strong></div>
+            <div style="color:var(--muted);font-size:13px">Creating projects/ideas and helped run hackathons.</div>
+          </div>
+
+          <div style="margin-top:14px">
+            <h4 style="margin-bottom:8px">Social</h4>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a href="#" style="font-size:13px;color:var(--muted);text-decoration:none">GitHub</a>
+              <a href="#" style="font-size:13px;color:var(--muted);text-decoration:none">LinkedIn</a>
+              <a href="#" style="font-size:13px;color:var(--muted);text-decoration:none">Twitter</a>
+            </div>
+          </div>
+
+        </div>
+
+        <footer>
+          © <span id="year"></span> ellachii • Built with ♥
+        </footer>
+      </aside>
+
+    </div>
+  </div>
+
+  <script>
+    // small niceties: set year and enable simple keyboard focus for resume download
+   
